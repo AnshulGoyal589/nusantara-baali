@@ -28,7 +28,7 @@ export const reviewsData: Review[] = [
     destination: {
       name: 'Pattaya',
       location: 'Thailand',
-      imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768459/5N7A0541-e1718042484447_oykc8b.jpg',
+      imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768502/hotel-building_jphsiv.jpg',
     },
   },
   {
