@@ -1,10 +1,20 @@
+// app/data/types.ts
+export type PackageCategory = 
+  | 'Transportation' 
+  | 'Tour Packages' 
+  | 'Visas' 
+  | 'Air Tickets' 
+  | 'Wedding Packages' 
+  | 'Honeymoon Packages';
+
 export type Package = {
-  id: string;
+  id: string; // e.g., 'tour-mount-bromo'
   name: string;
   location: string;
   price: number;
   imageSrc: string;
-  category: 'Adventure' | 'Honeymoon' | 'Relaxation' | 'Family';
+  category: PackageCategory;
   rating: number;
   reviews: number;
+  description: string;
 };

@@ -1,0 +1,8 @@
+import { Package } from "./types";
+
+export const airTicketPackages : Package[] = [
+  { id: 'air-economy-bali', name: 'Economy Class to Bali', location: 'Indonesia', price: 300, imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757767786/IMG_5757-1-edited-scaled.jpeg_iywwnp.webp', category: 'Air Tickets', rating: 4.5, reviews: 120, description: 'Affordable economy class tickets to Bali with top airlines.' },
+  { id: 'air-business-tokyo', name: 'Business Class to Tokyo', location: 'Japan', price: 1200, imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757767786/IMG_5757-1-edited-scaled.jpeg_iywwnp.webp', category: 'Air Tickets', rating: 4.8, reviews: 80, description: 'Experience luxury with business class tickets to Tokyo.' },
+  { id: 'air-first-paris', name: 'First Class to Paris', location: 'France', price: 2500, imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757767786/IMG_5757-1-edited-scaled.jpeg_iywwnp.webp', category: 'Air Tickets', rating: 5.0, reviews: 50, description: 'Travel in style with first class tickets to Paris.' },
+  { id: 'air-economy-sydney', name: 'Economy Class to Sydney', location: 'Australia', price: 400, imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757767786/IMG_5757-1-edited-scaled.jpeg_iywwnp.webp', category: 'Air Tickets', rating: 4.6, reviews: 90, description: 'Affordable economy class tickets to Sydney with top airlines.' },
+];

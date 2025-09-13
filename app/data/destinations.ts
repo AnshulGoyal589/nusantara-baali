@@ -29,7 +29,7 @@ export const popularDestinationsData: Destination[] = [
     name: "Aquarium",
     location: "Indonesia",
     price: 200,
-    imageSrc: "/images/aquarium.jpg",
+    imageSrc: "https://res.cloudinary.com/dwvdjxgba/image/upload/v1757767013/aquarium_ty8c2k.avif",
   },
   {
     id: 4,

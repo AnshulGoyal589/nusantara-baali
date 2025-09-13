@@ -23,12 +23,12 @@ export const reviewsData: Review[] = [
     reviewer: {
       name: 'Niki Lada',
       title: 'Professional tour guide',
-      avatarSrc: '/images/avatar1.jpg',
+      avatarSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768431/close-up-portrait-handsome-smiling-young-man-white-t-shirt-blurry-outdoor-nature_176420-6305_qlxzy4.jpg',
     },
     destination: {
       name: 'Pattaya',
       location: 'Thailand',
-      imageSrc: '/images/pattaya-review.jpg',
+      imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768459/5N7A0541-e1718042484447_oykc8b.jpg',
     },
   },
   {
@@ -38,12 +38,12 @@ export const reviewsData: Review[] = [
     reviewer: {
       name: 'Jane Doe',
       title: 'Travel Enthusiast',
-      avatarSrc: '/images/avatar2.jpg',
+      avatarSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768457/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo_vpmmcj.jpg',
     },
     destination: {
       name: 'Swiss Alps',
       location: 'Switzerland',
-      imageSrc: '/images/swiss-alps-review.jpg',
+      imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768527/shutterstock-1662649585-beautiful-mountain-hike-through-val-roseg-ValPoschiavo-rsz-06012021160542835_cmxg9v.jpg',
     },
   },
   {
@@ -53,12 +53,12 @@ export const reviewsData: Review[] = [
     reviewer: {
       name: 'Kenji Tanaka',
       title: 'Photographer',
-      avatarSrc: '/images/avatar3.jpg',
+      avatarSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768459/5N7A0541-e1718042484447_oykc8b.jpg',
     },
     destination: {
       name: 'Kyoto',
       location: 'Japan',
-      imageSrc: '/images/kyoto-review.jpg',
+      imageSrc: 'https://res.cloudinary.com/dwvdjxgba/image/upload/v1757768563/shutterstock_626644001-L_kbq5yo.jpg',
     },
   },
 ];
