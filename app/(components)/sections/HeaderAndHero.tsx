@@ -1,4 +1,3 @@
-// app/(components)/sections/HeaderAndHero.tsx
 
 'use client'; 
 
@@ -20,7 +19,6 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
-    // When mobile menu is open, prevent body from scrolling
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -29,7 +27,7 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.body.style.overflow = 'auto'; // Cleanup on component unmount
+      document.body.style.overflow = 'auto'; 
     };
   }, [isMenuOpen]);
 
@@ -57,7 +55,6 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="text-3xl font-bold">Calv.</Link>
             
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link key={link.name} href={link.href} className="font-medium hover:text-gray-300 transition-colors">{link.name}</Link>
@@ -67,7 +64,6 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
               <Link href="/contact" className="bg-white text-black font-semibold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">Contact Us</Link>
             </div>
             
-            {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md" aria-label="Toggle menu" aria-expanded={isMenuOpen}>
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,7 +73,6 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
         </div>
       </header>
       
-      {/* NEW: Fully functional mobile menu panel */}
       {isMenuOpen && (
         <div className="md:hidden fixed inset-0 top-20 z-40 bg-[#111827]/95 backdrop-blur-lg">
           <div className="pt-5 pb-6 px-4 space-y-3">
@@ -86,7 +81,7 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
                 key={link.name}
                 href={link.href}
                 className="block px-3 py-3 rounded-md text-xl font-medium text-white hover:bg-white/10"
-                onClick={() => setIsMenuOpen(false)} // Close menu on link click
+                onClick={() => setIsMenuOpen(false)} 
               >
                 {link.name}
               </Link>
@@ -105,7 +100,6 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
       )}
       
       <div className="relative z-20 flex flex-col items-center w-full px-4 text-center">
-        {/* MODIFIED: Responsive font sizes for the main heading */}
         <h1 id="hero-title" className="text-5xl font-bold sm:text-6xl md:text-8xl mt-32 md:mt-0  tracking-tight">
           Let&apos;s Travel<br />the World!
         </h1>

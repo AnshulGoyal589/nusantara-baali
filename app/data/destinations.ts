@@ -1,4 +1,3 @@
-// app/data/destinations.ts
 
 export type Destination = {
   id: number;

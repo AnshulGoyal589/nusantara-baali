@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="text-center text-gray-500 mt-12 border-t border-gray-800 pt-6">
-        <p>Copyright @ 2024 Nusantara Travels. All right reserved</p>
+        <p>Copyright @ {new Date().getFullYear()}. Nusantara Travels. All right reserved</p>
       </div>
     </footer>
   );

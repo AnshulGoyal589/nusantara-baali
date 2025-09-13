@@ -1,9 +1,8 @@
-// app/data/reviews.ts
 
 export type Review = {
   id: string;
   quote: string;
-  rating: number; // e.g., 4.5 out of 5
+  rating: number;
   reviewer: {
     name: string;
     title: string;

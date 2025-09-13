@@ -1,4 +1,4 @@
-// app/(components)/ui/DestinationCard.tsx
+
 import React from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
@@ -20,17 +20,17 @@ const DestinationCard = ({ destination, className = '' }: DestinationCardProps) 
         className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
       />
       
-      {/* Gradient Overlay */}
+      
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
       
-      {/* Most Popular Banner */}
+      
       {destination.isMostPopular && (
         <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm text-white text-xs font-bold py-1 px-3 rounded-full">
           #1 Most Popular
         </div>
       )}
 
-      {/* Content */}
+
       <div className="absolute bottom-0 left-0 p-6 w-full text-white">
         <div className="flex justify-between items-end">
           <div>

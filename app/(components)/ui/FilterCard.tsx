@@ -1,4 +1,4 @@
-// app/(components)/ui/FilterCard.tsx
+
 'use client'; 
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -7,7 +7,6 @@ import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 
-// Define the shape of our filters
 export interface Filters {
   location: string;
   date: Date | undefined;
@@ -18,15 +17,14 @@ export interface Filters {
 interface FilterCardProps {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
-  locations: string[]; // Dynamically passed from the parent
-  travelTypes: string[]; // Dynamically passed from the parent
+  locations: string[];
+  travelTypes: string[];
 }
 
 export const FilterCard = ({ filters, setFilters, locations, travelTypes }: FilterCardProps) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 
-  // Close calendar if clicking outside of it
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
@@ -42,7 +40,6 @@ export const FilterCard = ({ filters, setFilters, locations, travelTypes }: Filt
       <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full divide-y sm:divide-y-0 sm:divide-x divide-gray-200">
           
-          {/* Location Dropdown */}
           <div className="p-4 flex flex-col items-start text-left">
             <label className="text-sm font-semibold text-gray-700">Location</label>
             <div className="flex items-center gap-2 mt-2 w-full">
@@ -57,7 +54,6 @@ export const FilterCard = ({ filters, setFilters, locations, travelTypes }: Filt
             </div>
           </div>
 
-          {/* Date Picker with Calendar */}
           <div className="p-4 flex flex-col items-start text-left relative">
             <label className="text-sm font-semibold text-gray-700">Date</label>
             <div onClick={() => setShowCalendar(!showCalendar)} className="flex items-center gap-2 mt-2 w-full cursor-pointer">
@@ -81,7 +77,6 @@ export const FilterCard = ({ filters, setFilters, locations, travelTypes }: Filt
             )}
           </div>
 
-          {/* Travel Type Dropdown */}
           <div className="p-4 flex flex-col items-start text-left">
             <label className="text-sm font-semibold text-gray-700">Travel type</label>
             <div className="flex items-center gap-2 mt-2 w-full">
@@ -96,7 +91,6 @@ export const FilterCard = ({ filters, setFilters, locations, travelTypes }: Filt
             </div>
           </div>
 
-          {/* Guest Number Input */}
           <div className="p-4 flex flex-col items-start text-left">
             <label className="text-sm font-semibold text-gray-700">Guest</label>
             <div className="flex items-center gap-2 mt-2 w-full">

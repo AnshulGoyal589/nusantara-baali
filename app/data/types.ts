@@ -1,4 +1,3 @@
-// app/data/types.ts
 export type Package = {
   id: string;
   name: string;

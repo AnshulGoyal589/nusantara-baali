@@ -1,13 +1,10 @@
-// app/data/recommendations.ts
-
-// Let's create a more specific type for this card style
 export type Recommendation = {
   id: string;
   name: string;
   rating: number;
   reviews: number;
   description: string;
-  price: string; // Using string to accommodate the comma format "$123,4"
+  price: string;
   imageSrc: string;
   tags: string[];
 };

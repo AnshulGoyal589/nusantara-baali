@@ -1,4 +1,4 @@
-// app/(components)/sections/Reviews.tsx
+
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
@@ -8,7 +8,6 @@ import { Star, MapPin } from 'lucide-react';
 import { reviewsData } from '@/app/data/reviews';
 import { CarouselDots } from './CarouselDots';
 
-// Component for rendering the star rating
 const StarRating = ({ rating }: { rating: number }) => {
   const totalStars = 5;
   const fullStars = Math.floor(rating);
@@ -65,7 +64,7 @@ export const Reviews = () => {
             {reviewsData.map((review) => (
               <div key={review.id} className="flex-[0_0_100%] lg:flex-[0_0_80%] min-w-0 lg:pl-4">
                 <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 flex flex-col md:flex-row gap-8 items-center">
-                  {/* Left Side: Image */}
+                
                   <div className="relative w-full md:w-2/5 h-64 rounded-xl overflow-hidden flex-shrink-0">
                     <Image src={review.destination.imageSrc} alt={review.destination.name} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -80,7 +79,6 @@ export const Reviews = () => {
                       <Image src={review.reviewer.avatarSrc} alt={review.reviewer.name} width={40} height={40} className="rounded-full border-2 border-white" />
                     </div>
                   </div>
-                  {/* Right Side: Content */}
                   <div className="text-left">
                     <p className="text-gray-600 italic">&apos;{review.quote}&apos;</p>
                     <div className="mt-4">
@@ -97,7 +95,6 @@ export const Reviews = () => {
           </div>
         </div>
         
-        {/* Carousel Dots */}
         <CarouselDots
           scrollSnaps={scrollSnaps} 
           selectedIndex={selectedIndex} 
