@@ -13,7 +13,7 @@ export const recommendationsData: Recommendation[] = [
   {
     id: 'rec1',
     name: 'Venice',
-    rating: 5.90,
+    rating: 3.90,
     reviews: 99,
     description: "Venice's iconic canals and rich history promise an unforgettable experience.",
     price: '123,4',
@@ -23,7 +23,7 @@ export const recommendationsData: Recommendation[] = [
   {
     id: 'rec2',
     name: 'Madrid',
-    rating: 6.00,
+    rating: 3.00,
     reviews: 99,
     description: "Spain's vibrant capital, brimming with culture, architecture, and lively streets.",
     price: '123,4',
@@ -43,7 +43,7 @@ export const recommendationsData: Recommendation[] = [
   {
     id: 'rec4',
     name: 'Bali',
-    rating: 5.90,
+    rating: 4.90,
     reviews: 99,
     description: 'Tropical paradise with stunning beaches, lush landscapes, and vibrant culture.',
     price: '123,4',
@@ -53,7 +53,7 @@ export const recommendationsData: Recommendation[] = [
   {
     id: 'rec5',
     name: 'Curug Telu',
-    rating: 5.90,
+    rating: 4.90,
     reviews: 99,
     description: 'Three breathtaking waterfalls tucked away in Indonesia’s verdant oasis.',
     price: '123,4',
@@ -63,7 +63,7 @@ export const recommendationsData: Recommendation[] = [
   {
     id: 'rec6',
     name: 'Bromo',
-    rating: 5.90,
+    rating: 3.90,
     reviews: 99,
     description: 'Bromo Indonesia’s iconic Mount Bromo and its surrounding volcanic landscape.',
     price: '123,4',

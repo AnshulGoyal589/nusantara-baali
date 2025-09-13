@@ -29,7 +29,7 @@ export const PackageCard = ({ pkg, onBookNow }: PackageCardProps) => {
           <h3 className="text-xl font-bold text-gray-800 leading-tight">{pkg.name}</h3>
           <div className="flex-shrink-0 flex items-center gap-1 text-sm font-semibold bg-gray-100 px-2 py-1 rounded-md">
             <Star size={16} className="text-yellow-500 fill-current" />
-            <span>{pkg.rating.toFixed(1)}</span>
+            <span className="text-black">{pkg.rating.toFixed(1)}</span>
           </div>
         </div>
         
