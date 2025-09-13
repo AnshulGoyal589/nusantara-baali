@@ -62,7 +62,7 @@ export const ContactModal = ({ isOpen, closeModal, selectedPackage }: ContactMod
                         <p className="text-sm text-gray-500 mt-1">Our experts will contact you shortly to finalize details.</p>
                       </>
                     ) : (
-                      <p className="text-sm text-gray-500">We'd love to hear from you! Please reach out via one of the methods below.</p>
+                      <p className="text-sm text-gray-500">We&apos;d love to hear from you! Please reach out via one of the methods below.</p>
                     )}
                   </div>
                 </div>
