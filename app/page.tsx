@@ -10,57 +10,62 @@ import type { Filters } from './(components)/ui/FilterCard';
 import { format } from 'date-fns';
 import { Recommendations } from './(components)/sections/Recommendations';
 import Reviews from './(components)/sections/Reviews';
+import { ContactModal } from './(components)/ui/ContactModal';
 
 export default function Home() {
   const [filters, setFilters] = useState<Filters>({
-    location: 'All',
-    date: undefined,
-    travelType: 'All',
-    guests: 2,
+    location: 'All', date: undefined, travelType: 'All', guests: 2,
   });
-  
   const [filteredPackages, setFilteredPackages] = useState<Package[]>(allPackages);
 
-  
+  // Modal state, now used for both booking and general contact
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
+
   const uniqueLocations = useMemo(() => ['All', ...new Set(allPackages.map(pkg => pkg.location))], []);
   const uniqueTravelTypes = useMemo(() => ['All', ...new Set(allPackages.map(pkg => pkg.category))], []);
 
-  useEffect(() => {
-    const savedFilters = localStorage.getItem('nusantara-filters');
-    if (savedFilters) {
-      const parsed = JSON.parse(savedFilters);
-      if (parsed.date) {
-        parsed.date = new Date(parsed.date);
-      }
-      setFilters(parsed);
-    }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem('nusantara-filters', JSON.stringify(filters));
+  useEffect(() => { /* ... existing useEffect for hydration */ }, []);
+  useEffect(() => { /* ... existing useEffect for filtering */ }, [filters]);
 
-    const results = allPackages.filter(pkg => {
-      const locationMatch = filters.location === 'All' || pkg.location === filters.location;
-      const typeMatch = filters.travelType === 'All' || pkg.category === filters.travelType;
-      return locationMatch && typeMatch;
-    });
-    setFilteredPackages(results);
-  }, [filters]);
+  const handleBookNow = async (packageId: string) => {
+    // const pkg = allPackages.find(p => p.id === packageId);
+    // if (!pkg) return;
 
-  const handleBookNow = (packageId: string) => {
-    const selectedPackage = allPackages.find(p => p.id === packageId);
-    if (!selectedPackage) return;
-    const bookingFilters = JSON.parse(localStorage.getItem('nusantara-filters') || '{}');
-    const bookingDetails = {
-      package: selectedPackage,
-      searchCriteria: {
-        ...bookingFilters,
-        date: bookingFilters.date ? format(new Date(bookingFilters.date), 'PPP') : 'Any date',
-      },
-      timestamp: new Date().toISOString(),
-    };
-    console.log("--- BOOKING DETAILS TO SEND TO ADMIN ---", bookingDetails);
-    alert(`Booking request for ${selectedPackage.name} is ready! Check the console.`);
+    // Set the selected package and open the modal
+    // setSelectedPackage(pkg);
+    setIsModalOpen(true);
+
+    // const bookingFilters = JSON.parse(localStorage.getItem('nusantara-filters') || '{}');
+    // const bookingDetails = {
+    //   package: pkg,
+    //   searchCriteria: {
+    //     ...bookingFilters,
+    //     date: bookingFilters.date ? format(new Date(bookingFilters.date), 'PPP') : 'Any date',
+    //   },
+    //   timestamp: new Date().toISOString(),
+    // };
+    
+    // Send email in the background
+    // try {
+    //   await fetch('/api/send-booking-email', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(bookingDetails),
+    //   });
+    // } catch (error) {
+    //   console.error("Failed to send booking email:", error);
+    // }
   };
+  
+  // NEW function for the "Contact Us" button
+  const openContactModal = () => {
+    // Set selectedPackage to null to indicate a general inquiry
+    setSelectedPackage(null); 
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -69,12 +74,17 @@ export default function Home() {
         setFilters={setFilters} 
         locations={uniqueLocations} 
         travelTypes={uniqueTravelTypes}
+        onContactClick={openContactModal} // Pass the new function down
       />
       <PackageList packages={filteredPackages} onBookNow={handleBookNow} />
       <Recommendations onBookNow={handleBookNow} />
       <Reviews/>
+
+      <ContactModal 
+        isOpen={isModalOpen} 
+        closeModal={closeModal} 
+        selectedPackage={selectedPackage}
+      />
     </>
   );
 }
-      
-

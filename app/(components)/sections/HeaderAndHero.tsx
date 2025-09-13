@@ -11,13 +11,15 @@ interface HeaderAndHeroProps {
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
   locations: string[];
   travelTypes: string[];
+  onContactClick: () => void; // NEW: Add a prop for the contact click
 }
 
-const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAndHeroProps) => {
+const HeaderAndHero = ({ filters, setFilters, locations, travelTypes, onContactClick }: HeaderAndHeroProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    // ... (no changes to useEffect)
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -33,10 +35,15 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Destination', href: '/destinations' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'About Us', href: '/' },
+    { name: 'Destination', href: '/' },
+    { name: 'Contact', href: '/' },
   ];
+
+  const handleContactAndCloseMenu = () => {
+    onContactClick();
+    setIsMenuOpen(false);
+  };
 
   return (
     <section 
@@ -53,7 +60,7 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-3xl font-bold">Calv.</Link>
+            <Link href="/" className="text-3xl font-bold">Nusantara Travels</Link>
             
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
@@ -61,7 +68,13 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
               ))}
             </nav>
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/contact" className="bg-white text-black font-semibold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">Contact Us</Link>
+              
+              <button 
+                onClick={onContactClick} 
+                className="bg-white text-black font-semibold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                Contact Us
+              </button>
             </div>
             
             <div className="md:hidden flex items-center">
@@ -87,20 +100,20 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes }: HeaderAn
               </Link>
             ))}
             <div className="pt-6 border-t border-white/20">
-              <Link
-                href="/contact"
+              
+              <button
+                onClick={handleContactAndCloseMenu}
                 className="block w-full text-center bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Contact Us
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       )}
       
       <div className="relative z-20 flex flex-col items-center w-full px-4 text-center">
-        <h1 id="hero-title" className="text-5xl font-bold sm:text-6xl md:text-8xl mt-32 md:mt-0  tracking-tight">
+        <h1 id="hero-title" className="text-5xl font-bold sm:text-6xl md:text-8xl mt-20 md:mt-0 tracking-tight">
           Let&apos;s Travel<br />the World!
         </h1>
         <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/90">
