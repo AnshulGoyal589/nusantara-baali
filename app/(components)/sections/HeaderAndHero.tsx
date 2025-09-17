@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { FilterCard, Filters } from '../ui/FilterCard';
+import Image from 'next/image';
 
 interface HeaderAndHeroProps {
   filters: Filters;
@@ -59,8 +60,10 @@ const HeaderAndHero = ({ filters, setFilters, locations, travelTypes, onContactC
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-3xl font-bold">Nusantara Travels</Link>
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-3xl font-bold my-4">
+              <Image src="/images/logo.png" alt="Travel Agency Logo" width={150} height={100} />
+            </Link>
             
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
